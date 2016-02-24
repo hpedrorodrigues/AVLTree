@@ -2,7 +2,7 @@
 
 A simple implementation of AVL Tree :)
 
-~[AVL Tree](./screenshots/avltree.png)
+![AVL Tree](./screenshots/avltree.png)
 
 To run this project just type:
 
