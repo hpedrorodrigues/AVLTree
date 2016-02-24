@@ -6,9 +6,11 @@
 class Noh {
 
 private:
+
     Noh *left, *right, *father;
 
 public:
+
     int data;
 
     Noh(int data, Noh *left = NULL, Noh *right = NULL, Noh *father = NULL);

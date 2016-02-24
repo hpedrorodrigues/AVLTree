@@ -205,8 +205,8 @@ void Tree::showTree() {
 
     cout << this->root->getData() << "(Root)\n";
 
-    this->showSubTreeRec(this->root->getLeft(), this->SEPARATOR);
-    this->showSubTreeRec(this->root->getRight(), this->SEPARATOR);
+    this->showSubTreeRec(this->root->getLeft(), Constants::System::SEPARATOR);
+    this->showSubTreeRec(this->root->getRight(), Constants::System::SEPARATOR);
 }
 
 /**
@@ -374,16 +374,16 @@ int Tree::getBalanceFactor(Noh *noh) {
  *
  * A cada inserção a árvore é balanceada, se necessário.
  */
-Noh *Tree::insert(int dado, Noh *noh) {
+Noh *Tree::insert(int data, Noh *noh) {
     if (noh == NULL) {
 
-        noh = new Noh(dado);
-    } else if (dado < noh->getData()) {
+        noh = new Noh(data);
+    } else if (data < noh->getData()) {
 
-        noh->setLeft(insert(dado, noh->getLeft()));
-    } else if (dado > noh->getData()) {
+        noh->setLeft(insert(data, noh->getLeft()));
+    } else if (data > noh->getData()) {
 
-        noh->setRight(insert(dado, noh->getRight()));
+        noh->setRight(insert(data, noh->getRight()));
     }
 
     noh = balance(noh);

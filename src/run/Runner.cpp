@@ -1,96 +1,126 @@
 #include "Runner.h"
 
 int Runner::run() {
-    //Criando uma instância da classe Árvore
     Tree *a = new Tree();
 
-    int escolha = 0;
+    int option = 0;
+    int data;
+
     do {
-        // Menu
-        cout << "1 - Inserir\n";
-        cout << "2 - Remover No\n";
-        cout << "3 - Limpar Arvore\n";
-        cout << "4 - Imprimir por nivel\n";
-        cout << "5 - Imprimir em ordem\n";
-        cout << "6 - Imprima Ordenado\n";
-        cout << "7 - Sair\n";
-        cout << "\nEscolha uma opcao do menu: ";
-        cin >> escolha;
 
-        int dado;
-        switch (escolha) {
-            case 1:
-                //Inserir nó na Árvore
-                cout << "Digite o valor do no a ser inserido: ";
-                cin >> dado;
-                //Limpa tela
+        this->showOptions();
+        cin >> option;
+
+        switch (option) {
+
+            case Constants::Option::INSERT_NODE:
+                cout << "Type a value to insert: ";
+                cin >> data;
+
                 this->clearConsole();
 
-                a->insert(dado);
+                a->insert(data);
+
                 a->showTree();
-                cout << "\n\n";
+
+                this->breakLines();
                 break;
 
-            case 2:
-                //Remover nó da Árvore
-                cout << "Digite o valor do no a ser removido: ";
-                cin >> dado;
+            case Constants::Option::REMOVE_NODE:
+                cout << "Type a value to remove: ";
+                cin >> data;
+
                 this->clearConsole();
 
-                a->remove(dado);
+                a->remove(data);
+
                 a->showTree();
-                cout << "\n\n";
+
+                this->breakLines();
                 break;
 
-            case 3:
-                //Deletar Árvore
+            case Constants::Option::CLEAR_TREE:
                 this->clearConsole();
+
                 delete a;
 
                 a = new Tree();
 
-                //Teste para atribuir NULL à raiz. Aparentemente mesmo estando nula, a raiz está recebendo "lixo de memória"
-                //if( a -> raiz != NULL){
-                //	a -> raiz = NULL;
-                //}
-                //a -> showTree();
-
-                cout << "\n\n";
+                this->breakLines();
                 break;
 
-            case 4:
-                //Mostrar Árvore
+            case Constants::Option::SHOW_TREE_BY_LEVEL:
                 this->clearConsole();
+
                 a->showTree();
-                cout << "\n\n";
+
+                this->breakLines();
                 break;
 
-            case 5:
-                //Exibe os nós em ordem (filho(s) -> pai -> filhos)
+            case Constants::Option::SHOW_TREE_PRE_ORDER:
                 this->clearConsole();
-                cout << "Em Ordem: ";
+
+                cout << "Pre order: ";
+
+                a->preOrder();
+
+                this->breakLines();
+                break;
+
+            case Constants::Option::SHOW_TREE_IN_ORDER:
+                this->clearConsole();
+
+                cout << "In order: ";
+
                 a->inOrder();
-                cout << "\n\n";
+
+                this->breakLines();
                 break;
 
-            case 6:
-                //Exibir ordenado
+            case Constants::Option::SHOW_TREE_POS_ORDER:
+                this->clearConsole();
+
+                cout << "Pos order: ";
+
+                a->posOrder();
+
+                this->breakLines();
                 break;
 
-            case 7:
-                cout << "\nSaindo...";
+            case Constants::Option::EXIT:
+                cout << endl << "Exiting..." << endl << "Thx :) ->";
                 break;
 
             default:
-                cout << "\nOpcao invalida, tente novamente.\n";
+                cout << endl << "Invalid option, please try again :(" << endl << endl;
                 break;
 
         }
-    } while (escolha != 7);
+    } while (option != Constants::Option::EXIT);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 void Runner::clearConsole() {
     system("clear");
+}
+
+void Runner::breakLines() {
+    cout << endl << endl;
+}
+
+void Runner::showOptions() {
+    cout << "----------------------------------------------" << endl;
+    cout << "Georgy Adelson-Velsky and Evgenii Landis' Tree" << endl;
+    cout << "----------------------------------------------" << endl;
+    cout << endl;
+    cout << Constants::Option::INSERT_NODE << " - Insert node" << endl;
+    cout << Constants::Option::REMOVE_NODE << " - Remove node" << endl;
+    cout << Constants::Option::CLEAR_TREE << " - Clear tree" << endl;
+    cout << Constants::Option::SHOW_TREE_BY_LEVEL << " - Show tree by level" << endl;
+    cout << Constants::Option::SHOW_TREE_PRE_ORDER << " - Show tree with pre order" << endl;
+    cout << Constants::Option::SHOW_TREE_IN_ORDER << " - Show tree in order" << endl;
+    cout << Constants::Option::SHOW_TREE_POS_ORDER << " - Show tree with pos order" << endl;
+    cout << Constants::Option::EXIT << " - Exit" << endl;
+    cout << endl << "Choose a option: " << endl;
 }

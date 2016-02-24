@@ -10,6 +10,8 @@ set(SOURCE_FILES
         src/model/Tree.cpp
         src/run/Runner.h
         src/run/Runner.cpp
-        src/main.cpp)
+        src/main.cpp
+        src/model/Constants.h
+        src/model/Constants.cpp)
 
 add_executable(AVLTree ${SOURCE_FILES})

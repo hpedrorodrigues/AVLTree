@@ -2,6 +2,7 @@
 #define AVLTREE_TREE_H
 
 #include "Noh.h"
+#include "Constants.h"
 #include <iostream>
 
 using namespace std;
@@ -9,7 +10,6 @@ using namespace std;
 class Tree {
 
 private:
-    const string SEPARATOR = "  |__";
 
     Noh *root;
 
@@ -31,7 +31,7 @@ private:
 
     int getBalanceFactor(Noh *noh);
 
-    Noh *insert(int dado, Noh *noh);
+    Noh *insert(int data, Noh *noh);
 
     void showSubTreeRec(Noh *noh, string separator);
 
