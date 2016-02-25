@@ -1,3 +1,7 @@
 .idea
 avltree
 *.o
+CMakeCache.txt
+CMakeLists.txt
+CMakeFiles
+cmake_install.cmake
