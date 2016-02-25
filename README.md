@@ -4,7 +4,7 @@ A simple implementation of AVL Tree :)
 
 ![AVL Tree](./screenshots/avltree.png)
 
-To run this project just type:
+To run this project just type
 
 ```bash
 g++ src/main.cpp \
@@ -15,4 +15,4 @@ src/model/Constants.cpp \
 -o avltree && ./avltree
 ```
 
-ou just `./scripts/run.sh`. ;)
+ou just `./scripts/run.sh` or just `make`.
