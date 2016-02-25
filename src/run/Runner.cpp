@@ -1,7 +1,7 @@
 #include "Runner.h"
 
 int Runner::run() {
-    Tree *a = new Tree();
+    Tree *tree = new Tree();
 
     int option = 0;
     int data;
@@ -14,27 +14,27 @@ int Runner::run() {
         switch (option) {
 
             case Constants::Option::INSERT_NODE:
-                cout << "Type a value to insert: ";
+                cout << endl << "Type a value to insert: ";
                 cin >> data;
 
                 this->clearConsole();
 
-                a->insert(data);
+                tree->insert(data);
 
-                a->showTree();
+                tree->showTree();
 
                 this->breakLines();
                 break;
 
             case Constants::Option::REMOVE_NODE:
-                cout << "Type a value to remove: ";
+                cout << endl << "Type a value to remove: ";
                 cin >> data;
 
                 this->clearConsole();
 
-                a->remove(data);
+                tree->remove(data);
 
-                a->showTree();
+                tree->showTree();
 
                 this->breakLines();
                 break;
@@ -42,9 +42,9 @@ int Runner::run() {
             case Constants::Option::CLEAR_TREE:
                 this->clearConsole();
 
-                delete a;
+                delete tree;
 
-                a = new Tree();
+                tree = new Tree();
 
                 this->breakLines();
                 break;
@@ -52,7 +52,7 @@ int Runner::run() {
             case Constants::Option::SHOW_TREE_BY_LEVEL:
                 this->clearConsole();
 
-                a->showTree();
+                tree->showTree();
 
                 this->breakLines();
                 break;
@@ -60,9 +60,9 @@ int Runner::run() {
             case Constants::Option::SHOW_TREE_PRE_ORDER:
                 this->clearConsole();
 
-                cout << "Pre order: ";
+                cout << endl << "Pre order: ";
 
-                a->preOrder();
+                tree->preOrder();
 
                 this->breakLines();
                 break;
@@ -70,9 +70,9 @@ int Runner::run() {
             case Constants::Option::SHOW_TREE_IN_ORDER:
                 this->clearConsole();
 
-                cout << "In order: ";
+                cout << endl << "In order: ";
 
-                a->inOrder();
+                tree->inOrder();
 
                 this->breakLines();
                 break;
@@ -80,11 +80,15 @@ int Runner::run() {
             case Constants::Option::SHOW_TREE_POS_ORDER:
                 this->clearConsole();
 
-                cout << "Pos order: ";
+                cout << endl << "Pos order: ";
 
-                a->posOrder();
+                tree->posOrder();
 
                 this->breakLines();
+                break;
+
+            case Constants::Option::SHOW_TREE_HEIGHT:
+                cout << endl << "Tree height: " << tree->getHeight() << endl;
                 break;
 
             case Constants::Option::EXIT:
@@ -121,6 +125,7 @@ void Runner::showOptions() {
     cout << Constants::Option::SHOW_TREE_PRE_ORDER << " - Show tree with pre order" << endl;
     cout << Constants::Option::SHOW_TREE_IN_ORDER << " - Show tree in order" << endl;
     cout << Constants::Option::SHOW_TREE_POS_ORDER << " - Show tree with pos order" << endl;
+    cout << Constants::Option::SHOW_TREE_HEIGHT << " - Show tree height" << endl;
     cout << Constants::Option::EXIT << " - Exit" << endl;
     cout << endl << "Choose a option: " << endl;
 }

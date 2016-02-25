@@ -20,7 +20,8 @@ public:
         static const int SHOW_TREE_PRE_ORDER = 5;
         static const int SHOW_TREE_IN_ORDER = 6;
         static const int SHOW_TREE_POS_ORDER = 7;
-        static const int EXIT = 8;
+        static const int SHOW_TREE_HEIGHT = 8;
+        static const int EXIT = 9;
     };
 
     class System {
@@ -29,7 +30,6 @@ public:
 
         static const string SEPARATOR;
     };
-
 };
 
 #endif
