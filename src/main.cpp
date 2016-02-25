@@ -3,5 +3,7 @@
 int main() {
     Runner *runner = new Runner();
 
-    return runner->run();
+    runner->run();
+
+    return EXIT_SUCCESS;
 }

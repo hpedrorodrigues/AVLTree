@@ -1,6 +1,6 @@
 #include "Runner.h"
 
-int Runner::run() {
+void Runner::run() {
     Tree *tree = new Tree();
 
     int option = 0;
@@ -101,8 +101,6 @@ int Runner::run() {
 
         }
     } while (option != Constants::Option::EXIT);
-
-    return EXIT_SUCCESS;
 }
 
 void Runner::clearConsole() {

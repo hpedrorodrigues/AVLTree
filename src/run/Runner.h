@@ -11,7 +11,7 @@ class Runner {
 
 public:
 
-    int run();
+    void run();
 
     void clearConsole();
 
