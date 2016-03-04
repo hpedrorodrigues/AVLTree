@@ -2,6 +2,8 @@
 
 A simple implementation of AVL Tree :)
 
+A school work.
+
 ![AVL Tree](./screenshots/avltree.png)
 
 To run this project just type
