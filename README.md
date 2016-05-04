@@ -17,4 +17,4 @@ src/model/Constants.cpp \
 -o avltree && ./avltree
 ```
 
-ou just `./scripts/run.sh` or just `make && ./avltree`.
+or `./scripts/run.sh` or just `make && ./avltree`.
